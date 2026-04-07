@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flavor Haven - Best Restaurant in Town</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner">
+            <i class="fas fa-utensils fa-spin"></i>
+            <p>Loading Flavor Haven...</p>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-fire"></i> Flavor Haven
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reservation.html">Reservation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item cart-icon">
+                        <a class="nav-link position-relative" href="cart.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count badge bg-danger" id="cartCount">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content animate__animated">
+                        <h1 class="display-4 fw-bold mb-4">Welcome to <span class="text-warning">Flavor Haven</span></h1>
+                        <p class="lead mb-4">Experience culinary excellence with our authentic flavors and modern fusion dishes. Every bite tells a story.</p>
+                        <div class="hero-buttons">
+                            <a href="menu.html" class="btn btn-primary btn-lg me-3">View Menu</a>
+                            <a href="reservation.html" class="btn btn-outline-light btn-lg">Book Table</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image animate__animated animate__fadeInUp">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop" alt="Restaurant" class="img-fluid rounded shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features py-5">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title mb-3">Why Choose Us?</h2>
+                    <p class="lead text-muted">Discover what makes Flavor Haven the perfect dining destination</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4>Fresh Ingredients</h4>
+                        <p>Only the finest, locally sourced ingredients make it to your plate.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h4>Expert Chefs</h4>
+                        <p>World-class culinary artists creating masterpieces in every dish.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4>Fast Service</h4>
+                        <p>Premium service without compromising on quality or taste.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Preview -->
+    <section class="menu-preview py-5 bg-dark">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title mb-3 text-light">Our Specialties</h2>
+                    <p class="lead text-light-50">Explore our most popular dishes</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop" alt="Butter Chicken" class="card-img-top">
+                        <div class="card-body">
+                            <h5>Butter Chicken</h5>
+                            <p class="card-text">Creamy tomato-based curry with tender chicken.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$18.99</span>
+                                <a href="menu.html" class="btn btn-outline-light btn-sm">View Menu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1579586140626-5984b9dc23d6?w=400&h=300&fit=crop" alt="Paneer Tikka" class="card-img-top">
+                        <div class="card-body">
+                            <h5>Paneer Tikka</h5>
+                            <p class="card-text">Smoked cottage cheese with aromatic spices.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$15.99</span>
+                                <a href="menu.html" class="btn btn-outline-light btn-sm">View Menu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="menu-card">
+                        <img src="https://images.unsplash.com/photo-1542994983-9debd7e9aa5f?w=400&h=300&fit=crop" alt="Tiramisu" class="card-img-top">
+                        <div class="card-body">
+                            <h5>Tiramisu</h5>
+                            <p class="card-text">Classic Italian dessert with coffee and mascarpone.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">$9.99</span>
+                                <a href="menu.html" class="btn btn-outline-light btn-sm">View Menu</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta py-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Ready to Experience Flavor Haven?</h2>
+            <p class="lead mb-4">Reserve your table today and let us create a memorable dining experience for you.</p>
+            <a href="reservation.html" class="btn btn-primary btn-lg me-3">Book Now</a>
+            <a href="menu.html" class="btn btn-outline-primary btn-lg">Explore Menu</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5><i class="fas fa-fire text-warning me-2"></i>Flavor Haven</h5>
+                    <p class="text-muted">Where every bite is a celebration of flavor and tradition.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="menu.html" class="text-muted">Menu</a></li>
+                        <li><a href="reservation.html" class="text-muted">Reservation</a></li>
+                        <li><a href="contact.html" class="text-muted">Contact</a></li>
+                        <li><a href="cart.html" class="text-muted">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Contact Info</h5>
+                    <p class="text-muted">
+                        <i class="fas fa-map-marker-alt me-2"></i> 123 Flavor Street, Food City<br>
+                        <i class="fas fa-phone me-2"></i> +1 (555) 123-4567<br>
+                        <i class="fas fa-envelope me-2"></i> info@flavorhaven.com
+                    </p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="text-muted mb-0">&copy; 2024 Flavor Haven. All rights reserved. | Designed for Frontend Excellence</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="addToCartToast" class="toast" role="alert">
+            <div class="toast-header">
+                <i class="fas fa-shopping-cart text-success me-2"></i>
+                <strong class="me-auto">Added to Cart</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
