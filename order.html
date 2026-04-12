@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Online - Flavors Beyond Borders</title>
+    <script src="https://kit.fontawesome.com/cbf21623c1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --primary-dark: #0D1B2A;
+        }
+        body { font-family: 'Poppins', sans-serif; }
+        .category-tabs { 
+            border-bottom: 2px solid #eee; 
+            margin-bottom: 30px; 
+        }
+        .tab-btn { 
+            padding: 12px 24px; 
+            border: none; 
+            background: none; 
+            font-weight: 500; 
+            color: #666; 
+            transition: all 0.3s; 
+        }
+        .tab-btn.active { 
+            color: var(--primary-gold); 
+            border-bottom: 3px solid var(--primary-gold); 
+        }
+        .tab-btn:hover { color: var(--primary-dark); }
+        .menu-items-container { min-height: 400px; }
+        .veg-card { cursor: pointer; transition: transform 0.3s; }
+        .veg-card:hover { transform: translateY(-5px); }
+        .floating-cart {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-gold);
+            color: white;
+            border-radius: 50%;
+            border: none;
+            box-shadow: 0 4px 20px rgba(212,175,55,0.4);
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        .floating-cart .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #dc3545;
+            color: white;
+            border-radius: 50%;
+            padding: 4px 8px;
+            font-size: 12px;
+            min-width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212,175,55,0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(212,175,55,0); }
+            100% { box-shadow: 0 0 0 0 rgba(212,175,55,0); }
+        }
+        #checkoutModal .modal-content { border-radius: 20px; }
+        .checkout-form { max-width: 500px; margin: 0 auto; }
+        .form-control:focus { border-color: var(--primary-gold); box-shadow: 0 0 0 0.2rem rgba(212,175,55,0.25); }
+        .place-order-btn { background: var(--primary-gold); border: none; font-weight: 600; }
+        .cart-item { padding: 15px 0; border-bottom: 1px solid #eee; }
+        .qty-btn { width: 30px; height: 30px; border: 1px solid #ddd; background: white; border-radius: 50%; }
+        .success-toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            z-index: 10000;
+            transform: translateX(400px);
+            transition: transform 0.3s;
+        }
+        .success-toast.show { transform: translateX(0); }
+        @media (max-width: 768px) {
+            .floating-cart { bottom: 15px; right: 15px; width: 55px; height: 55px; }
+            .cart-sidebar { position: fixed; bottom: 0; left: 0; right: 0; height: 70vh; background: white; transform: translateY(100%); transition: transform 0.3s; z-index: 1001; border-radius: 20px 20px 0 0; }
+            .cart-sidebar.open { transform: translateY(0); }
+            .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: none; }
+            .overlay.active { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar - Unchanged -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="main.html">
+                <img src="https://res.cloudinary.com/dzlfjshzi/image/upload/v1755263754/logo_ikwarn.png" class="food-munch-logo" alt="Logo" style="height: 40px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ml-auto">
+                    <a class="nav-link" href="menu.html">Menu</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <!-- Menu Section -->
+            <div class="col-lg-8 px-4">
+                <h1 class="mb-4" style="font-family: 'Playfair Display'; color: #0D1B2A;">🍽️ Order Online</h1>
+                
+                <!-- Category Tabs -->
+                <div class="category-tabs">
+                    <button class="tab-btn active" data-category="all">All Items</button>
+                    <button class="tab-btn" data-category="Veg Starters">🌿 Veg Starters</button>
+                    <button class="tab-btn" data-category="Non-Veg Starters">🍗 Non-Veg Starters</button>
+                    <button class="tab-btn" data-category="Main Course">🍛 Main Course</button>
+                    <button class="tab-btn" data-category="Italian Fusion">🍝 Italian Fusion</button>
+                    <button class="tab-btn" data-category="Desserts">🍰 Desserts</button>
+                    <button class="tab-btn" data-category="Beverages">🥤 Beverages</button>
+                </div>
+
+                <!-- Menu Items Container -->
+                <div id="menuItemsContainer" class="menu-items-container row">
+                    <!-- Dynamic cards will be inserted here -->
+                </div>
+            </div>
+
+            <!-- Cart Sidebar (Desktop) -->
+            <div class="col-lg-4 px-4">
+                <div class="cart-sidebar sticky-top" id="cartSidebar">
+                    <h4 class="cart-title mb-3">
+                        <i class="fas fa-shopping-cart"></i> Your Cart (<span id="cartCount">0</span>)
+                    </h4>
+                    <div id="cartItems">
+                        <div class="empty-cart text-center py-5">
+                            <i class="fas fa-shopping-cart" style="font-size: 4rem; color: #ddd;"></i>
+                            <h5 class="mt-3">Your cart is empty</h5>
+                            <p class="text-muted">Add items to get started</p>
+                        </div>
+                    </div>
+                    <div class="cart-total mt-3" id="cartTotal" style="display: none;">
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>Total Items:</span>
+                            <span id="totalItems">0</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-4">
+                            <span class="h5 font-weight-bold">Total: </span>
+                            <span class="h4 text-success font-weight-bold" id="totalPrice">₹0</span>
+                        </div>
+                        <button class="btn btn-outline-danger w-100 mb-2" onclick="clearCart()">
+                            <i class="fas fa-trash"></i> Clear Cart
+                        </button>
+                        <button class="btn btn-warning text-dark w-100 place-order-btn" onclick="openCheckout()">
+                            <i class="fas fa-credit-card"></i> Place Order
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Cart Button -->
+    <button class="floating-cart" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="badge" id="floatingCartCount" style="display: none;">0</span>
+    </button>
+
+    <!-- Overlay for mobile cart -->
+    <div class="overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+    <!-- Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-credit-card"></i> Complete Your Order
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="checkout-summary mb-4">
+                        <h6>Order Summary</h6>
+                        <div id="modalCartItems"></div>
+                        <hr>
+                        <div class="d-flex justify-content-between">
+                            <strong>Total: <span id="modalTotal">₹0</span></strong>
+                        </div>
+                    </div>
+                    <form id="checkoutForm" class="checkout-form">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" class="form-control" id="customerName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" class="form-control" id="customerPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Delivery Address</label>
+                            <textarea class="form-control" id="deliveryAddress" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Payment Method</label>
+                            <select class="form-control" id="paymentMethod" required>
+                                <option value="">Select payment</option>
+                                <option value="cod">Cash on Delivery</option>
+                                <option value="card">Credit/Debit Card</option>
+                                <option value="upi">UPI</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-warning text-dark w-100 place-order-btn">
+                            <i class="fas fa-check"></i> Place Order Now
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div class="success-toast" id="successToast">
+        <i class="fas fa-check-circle"></i> Order placed successfully! We'll contact you shortly.
+    </div>
+
+    <!-- Scripts -->
+    <script src="cart.js"></script>
+    <script>
+        // Order page specific functionality
+        let currentCategory = 'all';
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            renderMenuItems('all');
+            updateCartUI();
+            setupTabListeners();
+            updateFloatingCartBadge();
+        });
+
+        function setupTabListeners() {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelector('.tab-btn.active').classList.remove('active');
+                    btn.classList.add('active');
+                    currentCategory = btn.dataset.category;
+                    renderMenuItems(currentCategory);
+                });
+            });
+        }
+
+        function renderMenuItems(category) {
+            const container = document.getElementById('menuItemsContainer');
+            container.innerHTML = '';
+            
+            const filteredItems = category === 'all' 
+                ? menuData.flatMap(cat => cat.items)
+                : menuData.find(cat => cat.category === category)?.items || [];
+            
+            filteredItems.forEach(item => {
+                const card = createVegCard(item);
+                container.appendChild(card);
+            });
+            
+            // Add staggered animation
+            const cards = container.querySelectorAll('.veg-card-inner');
+            cards.forEach((card, index) => {
+                setTimeout(() => card.classList.add('animate'), index * 100);
+            });
+        }
+
+        function createVegCard(item) {
+            const div = document.createElement('div');
+            div.className = 'veg-card col-lg-3 col-md-6 col-12 mb-4';
+            div.innerHTML = `
+                <div class="veg-card-inner">
+                    <div class="veg-image-container">
+                        <img src="${item.image}" alt="${item.name}" class="veg-image">
+                    </div>
+                    <div class="veg-card-content">
+                        <h3 class="veg-title">${item.name}</h3>
+                        <div class="veg-price">₹${item.price}</div>
+                        <p class="veg-desc">${item.desc}</p>
+                        <p class="stars">${item.rating}</p>
+                        <button class="add-cart-btn mt-2 w-100" onclick="addToCart('${item.name}', ${item.price}, '${item.image}')" style="background: var(--primary-gold); color: white; border: none; padding: 10px; border-radius: 25px; font-weight: 600;">
+                            <i class="fas fa-plus"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `;
+            return div;
+        }
+
+        function toggleCart() {
+            const sidebar = document.getElementById('cartSidebar');
+            const overlay = document.getElementById('cartOverlay');
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('active');
+        }
+
+        function openCheckout() {
+            if (cart.length === 0) {
+                showToast('Add items to cart first!');
+                return;
+            }
+            
+            document.getElementById('modalCartItems').innerHTML = cart.map(item => `
+                <div class="d-flex mb-2">
+                    <small>${item.name} x${item.quantity}</small>
+                    <span class="ml-auto">₹${item.price * item.quantity}</span>
+                </div>
+            `).join('');
+            document.getElementById('modalTotal').textContent = `₹${getTotalPrice()}`;
+            $('#checkoutModal').modal('show');
+        }
+
+        document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const orderData = {
+                customerName: document.getElementById('customerName').value,
+                customerPhone: document.getElementById('customerPhone').value,
+                deliveryAddress: document.getElementById('deliveryAddress').value,
+                paymentMethod: document.getElementById('paymentMethod').value,
+                cart: cart,
+                total: getTotalPrice(),
+                timestamp: new Date().toISOString()
+            };
+            
+            // Save order to localStorage
+            const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+            orders.push(orderData);
+            localStorage.setItem('orders', JSON.stringify(orders));
+            
+            clearCart();
+            $('#checkoutModal').modal('hide');
+            showToast('Order placed successfully! We\'ll contact you within 5 minutes.');
+        });
+
+        function showToast(message) {
+            const toast = document.getElementById('successToast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        // Update badge
+        function updateFloatingCartBadge() {
+            const badge = document.getElementById('floatingCartCount');
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            badge.textContent = count;
+            badge.style.display = count > 0 ? 'flex' : 'none';
+            document.getElementById('cartCount').textContent = count;
+        }
+
+        // Override cart.js updateCartUI to call badge update
+        const originalUpdateCartUI = updateCartUI;
+        updateCartUI = function() {
+            originalUpdateCartUI();
+            updateFloatingCartBadge();
+            document.getElementById('totalItems').textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+        };
+    </script>
+    <script src="order-menu-data.js"></script>
+</body>
+</html>

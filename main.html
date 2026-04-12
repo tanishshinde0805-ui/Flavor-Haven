@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://kit.fontawesome.com/cbf21623c1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+      document.querySelectorAll('.navbar-nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          // Smooth scroll
+          const targetId = link.getAttribute('href').substring(1);
+          const target = document.getElementById(targetId);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+          // Close mobile menu
+          const navbarCollapse = document.querySelector('.navbar-collapse');
+          navbarCollapse.classList.remove('show');
+        });
+      });
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://res.cloudinary.com/dzlfjshzi/image/upload/v1755263754/logo_ikwarn.png" class="food-munch-logo" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ml-auto">
+<a class="nav-link active custom-nav-link" id="navitem1" href="#wcu-section">Why Choose Us?
+                        <span class="sr-only">(current)</span>
+                    </a>
+<a class="nav-link custom-nav-link" id="navitem2" href="#explore-menu-section">Explore Menu</a>
+<a class="nav-link custom-nav-link" id="navitem3" href="#book">Reservations</a>
+<a class="nav-link custom-nav-link" id="navitem4" href="#follow">Follow Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="banner-section-bg-container d-flex flex-column justify-content-center">
+        <div class="text-center">
+            <h1 class="banner-heading mb-3">Flavors Beyond Borders</h1>
+            <p class="banner-caption mb-3">Eat smart & Healthy</p>
+            <a href="menu.html" class="hero-view-menu">
+                View Menu <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="order.html" class="hero-order-now">
+                Order Now
+            </a>
+        </div>
+    </div>
+<div class="wcu-section pt-5 pb-5" id="wcu-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="wcu-section-heading">Why Choose Us?</h1>
+                    <p class="wcu-section-description">We use both original recipes and classic versions of famous food items</p>
+                </div>
+                <div class="col-12 col-md-4 mb-4 d-flex">
+                    <div class="wcu-card p-3  h-100">
+                        <img src="https://res.cloudinary.com/dzlfjshzi/image/upload/v1756281173/fs_kpnvjw.png" class="wcu-card-image" />
+                        <h1 class="wcu-card-title mt-3">Food Service</h1>
+                        <p class="wcu-card-description">Experience a new standard in dining. Our passion for great food is matched only by our commitment to flawless service.</p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 mb-4 d-flex">
+                    <div class="wcu-card p-3  h-100">
+                        <img src="https://res.cloudinary.com/dzlfjshzi/image/upload/v1756319966/PIC1_n2xwf7.png" class="wcu-card-image" />
+                        <h1 class="wcu-card-title mt-3">Authentic Flavors</h1>
+                        <p class="wcu-card-description">Traditional Italian techniques and rich Indian spices for a fusion that feels both homely and global.</p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 mb-4 d-flex">
+                    <div class="wcu-card p-3  h-100">
+                        <img src="https://res.cloudinary.com/dzlfjshzi/image/upload/v1756319966/pic2_xx2bcq.png" class="wcu-card-image" />
+                        <h1 class="wcu-card-title mt-3">Premium Quality</h1>
+                        <p class="wcu-card-description">Fresh ingredients, handpicked spices, and chef-curated recipes for a superior dining experience.</p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 mb-4 d-flex">
+                    <div class="wcu-card p-3  h-100">
+                        <img src="https://res.cloudinary.com/dzlfjshzi/image/upload/v1756319966/pic3_jucv8z.png" class="wcu-card-image" />
+                        <h1 class="wcu-card-title mt-3">Cozy Ambience</h1>
+                        <p class="wcu-card-description">A warm, elegant space designed for family dinners, casual hangouts, and special moments.</p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 mb-4 d-flex">
+                    <div class="wcu-card p-3  h-100">
+                        <img src="https://res.cloudinary.com/dzlfjshzi/image/upload/v1756319966/PIC4_x6atyw.png" class="wcu-card-image" />
+                        <h1 class="wcu-card-title mt-3">Affordable Luxury</h1>
+                        <p class="wcu-card-description">Fine dining taste with budget-friendly pricing—luxury that feels accessible.</p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 mb-4 d-flex">
+                    <div class="wcu-card p-3  h-100">
+                        <img src="https://res.cloudinary.com/dzlfjshzi/image/upload/v1756319966/PIC5_ndwvdc.png" class="wcu-card-image" />
+                        <h1 class="wcu-card-title mt-3">Hygiene & Freshness</h1>
+                        <p class="wcu-card-description">Clean kitchen, high-quality produce, and uncompromised safety standards.</p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4 mb-4 d-flex">
+                    <div class="wcu-card p-3  h-100">
+                        <img src="https://res.cloudinary.com/dzlfjshzi/image/upload/v1756320811/pic6_satbas.png" class="wcu-card-image" />
+                        <p class="wcu-card-description">Food Copons & Offers wcu-card-description
+                            <span class="offers">50% OFF</span>
+                            and Exclusive Promo codes on all online food orders.
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+<div class="explore-menu-section" id="explore-menu-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="menu-section-heading">
+                    Explore Menu
+                </h1>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="menu-item-card shadow p-3 h-100">
+                    <img src="images/VegStarter.jpeg" class="menu-item-image w-100" />
+                    <h1 class="menu-card-title">
+                        Veg Starters
+                    </h1>
+
+                    <p class="menu-card-description">
+                        Delicious vegetarian starters made with fresh ingredients.
+                    </p>
+
+                    <a href="menu/veg-starter.html" class="menu-item-link">
+                        View Menu <i class="fas fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+
+                <div class="menu-item-card shadow p-3 h-100">
+
+                    <img src="images/Nonveg.jpeg" class="menu-item-image w-100" />
+
+                    <h1 class="menu-card-title">
+                        Non-Veg Starters
+                    </h1>
+
+                    <p class="menu-card-description">
+                        <p class="menu-card-description">
+Taste our premium non-veg starters made with fresh chicken, seafood, and signature spices for a perfect beginning.
+</p>
+                    </p>
+
+                    <a href="menu/nonveg-starter.html" class="menu-item-link">
+                        View Menu <i class="fas fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+
+                <div class="menu-item-card shadow p-3 h-100">
+
+                    <img src="images/MainCourse.jpeg" class="menu-item-image w-100" />
+
+                    <h1 class="menu-card-title">
+                        Main Course
+                    </h1>
+
+                    <p class="menu-card-description">
+                        Enjoy our rich and flavorful main course with biryani, curries, and chef-special dishes made with premium ingredients.
+
+                    </p>
+
+                    <a href="menu/main-course.html" class="menu-item-link">
+                        View Menu <i class="fas fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+
+                <div class="menu-item-card shadow p-3 h-100">
+
+                    <img src="images/Italian&Fusion.jpeg" class="menu-item-image w-100" />
+
+                    <h1 class="menu-card-title">
+                        Italian & Fusion
+                    </h1>
+
+                    <p class="menu-card-description">
+                        <p class="menu-card-description">
+Classic Italian favorites like pasta and pizza blended with unique fusion flavors for a global taste experience.
+
+                    </p>
+
+                    <a href="menu/italian-fusion.html" class="menu-item-link">
+                        View Menu <i class="fas fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+                        
+
+             <div class="col-12 col-md-6 col-lg-4 mb-4">
+
+                <div class="menu-item-card shadow p-3 h-100">
+
+                    <img src="images/Beverages.jpeg" class="menu-item-image w-100" />
+
+                    <h1 class="menu-card-title">
+                        Desserts
+                    </h1>
+
+                    <p class="menu-card-description">
+                       Indulge in our mouth-watering desserts crafted to give a perfect sweet ending to your meal.
+
+                    </p>
+
+                    <a href="menu/desserts.html" class="menu-item-link">
+                        View Menu <i class="fas fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+             <div class="col-12 col-md-6 col-lg-4 mb-4">
+
+                <div class="menu-item-card shadow p-3 h-100">
+
+                    <img src="images/Dessert.jpeg" class="menu-item-image w-100" />
+
+                    <h1 class="menu-card-title">
+                        Beverages
+                    </h1>
+
+                    <p class="menu-card-description">
+                        Refreshing drinks, cold coffee, mojitos, milkshakes, and fresh juices to energize your day.
+
+                    </p>
+
+                    <a href="menu/beverages.html" class="menu-item-link">
+                        View Menu <i class="fas fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+</div>
+            
+        </div>
+    </div>
+
+<div class="book-table-section" id="book">
+
+    <div class="book-overlay">
+
+        <div class="container text-center">
+
+            <h1 class="book-heading">
+                Book Your Table
+            </h1>
+
+            <p class="book-description">
+                Reserve your table and enjoy a premium dining experience
+            </p>
+
+            <form id="bookingForm" class="booking-form">
+
+                <div class="row">
+
+                    <div class="col-12 col-md-6">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <input type="date" required>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <input type="time" required>
+                    </div>
+
+                    <div class="col-12 col-md-4">
+                        <input type="number" placeholder="Guests" required>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="book-btn">
+                            Book Table
+                        </button>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="follow-us-section pt-5 pb-5" id="follow">
+
+    <div class="container text-center">
+
+        <div class="row">
+            <div class="col-12">
+
+                <h1 class="follow-heading">
+                    Follow Us
+                </h1>
+
+                <p class="follow-description">
+                    Stay connected with us on social media for latest offers and updates
+                </p>
+
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+
+            <div class="col-3 col-md-2">
+                <a href="#">
+                    <div class="social-card">
+                        <i class="fab fa-instagram social-icon"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-3 col-md-2">
+                <a href="#">
+                    <div class="social-card">
+                        <i class="fab fa-facebook social-icon"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-3 col-md-2">
+                <a href="#">
+                    <div class="social-card">
+                        <i class="fab fa-twitter social-icon"></i>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-3 col-md-2">
+                <a href="#">
+                    <div class="social-card">
+                        <i class="fab fa-youtube social-icon"></i>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
